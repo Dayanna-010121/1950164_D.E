@@ -1,0 +1,121 @@
+---
+title: "ANALISIS FACTORIAL 1"
+author: "KAREN RAMON"
+date: "20/6/2021"
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+---
+
+# IMPORTAR LA BASE DE DATOS EN FORMATO EXCEL 
+```{r}
+library(readxl)
+datos<- read_excel("C:/Users/TOSHIBA/Desktop/UFPS KAREN/QUINTO SEMESTRE/DISEÑO DE EXPERIMENTOS/KAREN DAYANNA - EXAMEN FINAL/af.xlsx")
+```
+
+# TIPIFICACION O ESTANDARIZACION DE VARIABLES  
+La tipificación permite que todas las variables métricas gocen de una misma unidad de medida estadística. 
+```{r}
+datost<- datos #crear una nueva base de datos o data frame
+datost<- scale(datost, center = T, scale = T )
+datost<- as.data.frame(datost)
+```
+
+# NORMALIDAD MULTIVARIANTE 
+H0: Normalidad multivariante
+H1: No normalidad multivariante
+Confianza= 95%  
+Alfa= 5% = 0,05  
+P value > alfa: no se rechaza la H0 (Normalidad)
+P value < alfa: se rechaza la H0 (No normalidad)
+```{r}
+library(MVN)
+mvn(datost[2:7])
+```
+Como el P value > alfa, no se rechaza la H0, por lo tanto, existe normalidad multivariante. 
+
+# MATRIZ DE CORRELACIONES 
+H0: Correlación = 0 (No hay correlación)
+H1: Corrlación diferente de 0 (Sí hay correlación)  
+
+Cuando no se rechaza H0, no se aplica AFE. 
+Se rechace H0, sí para aplicar AFE.
+```{r}
+library(psych)
+corr.test(datost [,2:7])
+correlaciones<- corr.test(datost [,2:7]) #se crea la matriz de correlaciones 
+correlaciones$r #matriz de correlaciones
+r <- as.matrix(correlaciones$r)
+```
+Alfa= 0,05
+P value > alfa: no se rechaza H0 
+P value < alfa: se rechza H0, estamos e esta situacion, por lo tanto, si es aplicable al analisis factorial exploratorio.
+
+# INDICADORES DE APLICABILIDAD DEL AFE (BONDAD DE AJUSTE)
+## CONTRASTE DE ESFECIDIDAD DE BARTLETT
+H0: Las correlaciones teóricas entre cada par de variables es nulo  
+H1: Las correlaciones teóricas entre cada par de variables no es nulo   
+P value > alfa: no se aplica el AFE (no se rechaza H0)  
+P value < alfa: sí se aplica el AFE (se rechaza el H0)  
+```{r}
+dim(datost) #tamaño de la muestra= 30 personas 
+cortest.bartlett(r, n= 30)
+```
+Como el P value es menor a alfa, se rechaza la H0, por lo tanto, las correlaciones teórizas entre cada par de variables es nulo, es decir, sí es aplicables el análisis factorial exploratorio (AFE)
+
+## MEDIDA DE ADECUACION MUESTRAL DE KAISER, MEYER Y OKLIN (KMO)
+Estudia variable por variable, si son o no son aceptadas para hacer AFE. (Que variables elimino o mantengo).
+Se mantiene una variable en el modelo, si el KMO es igual o mayor a 0,7
+Se elimina una variable del modelo, si el KMO es menor a 0,7  
+```{r}
+KMO(r)
+```
+KMO= 0,5 El modelo es middling (regular), sí es adecuado para relizar análisis factorial
+KMO Valor= 0,33 (Middling)  
+Total= 0,55 (unacceptable)
+Hogar= 0,56 (unacceptable)
+Ganancias= 0,45 (unacceptable)
+Hrs_Celular= 0,59 (unacceptable)
+Hrs_juegos= 0,45 (unacceptable)  
+
+# DETERMINACION DE NUMEROS DE FACTORES A EXTRAER 
+## Metodo de las componentes principales iteradas  (Ejes principales)
+este metodo de las ejes principales es de naturaleza no paramétrica, es decir, que s eocupa, cuado no hay normalidad multivariante; pero, también es válido para modelos paramétricos (normalidad multvariante).
+
+```{r}
+fa.parallel(r, fm= "pa", n.obs = 30, ylabel = "eigenvalues")
+
+```
+con el método de los ejes principales se extraeria solo 1 factor.  
+
+## METODO DE LOS COMPONENTES PRINCIPALES 
+Metodo parámetrico, sirve solo para modelos con normalidad multivariante.
+```{r}
+fa.parallel(r, fm= "pc", n.obs = 30, ylabel = "eigenvalues")
+```
+con el metodo de las componentes principales se recomienda extraer 1 factor.  
+
+## METODO DE LA MAXIMA VEROSIMILITUD 
+Método paramétrico, sirve solo para modelos con normalidad multivariante.
+```{r}
+fa.parallel(r, fm= "ml", n.obs = 30, ylabel = "eigenvalues")
+```
+con el metodo de la mxima verosimilitud se recomienda extraer 1 factor. 
+
+## METODO PARALELO CON ITERACIONES
+Método paramétrico, sirve solo para modelos con normalidad multivariante.
+```{r}
+library(paran)
+paran(r, iterations = 1000, graph = T)
+```
+Con el método Horn´s (metodo paralelo con iteraciones) se recomienda extraer 1 factor.  
+Resumen: 
+Ejes principales: 1 factor
+componentes principales= 1 factor
+máxima verosimilitud= 1 factor
+método paralelo con iteraciones Horn´s= 1 factor 
+
+conclusion: vamso a extraer 1 factor 
+
+

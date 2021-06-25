@@ -1,0 +1,220 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={ANALISIS FACTORIAL 1},
+  pdfauthor={KAREN RAMON},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{ANALISIS FACTORIAL 1}
+\author{KAREN RAMON}
+\date{20/6/2021}
+
+\begin{document}
+\maketitle
+
+\hypertarget{importar-la-base-de-datos-en-formato-excel}{%
+\section{IMPORTAR LA BASE DE DATOS EN FORMATO
+EXCEL}\label{importar-la-base-de-datos-en-formato-excel}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readxl)}
+\NormalTok{datos}\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"C:/Users/TOSHIBA/Desktop/UFPS KAREN/QUINTO SEMESTRE/DISEÑO DE EXPERIMENTOS/KAREN DAYANNA {-} EXAMEN FINAL/af.xlsx"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{tipificacion-o-estandarizacion-de-variables}{%
+\section{TIPIFICACION O ESTANDARIZACION DE
+VARIABLES}\label{tipificacion-o-estandarizacion-de-variables}}
+
+La tipificación permite que todas las variables métricas gocen de una
+misma unidad de medida estadística.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datost}\OtherTok{\textless{}{-}}\NormalTok{ datos }\CommentTok{\#crear una nueva base de datos o data frame}
+\NormalTok{datost}\OtherTok{\textless{}{-}} \FunctionTok{scale}\NormalTok{(datost, }\AttributeTok{center =}\NormalTok{ T, }\AttributeTok{scale =}\NormalTok{ T )}
+\NormalTok{datost}\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(datost)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{normalidad-multivariante}{%
+\section{NORMALIDAD MULTIVARIANTE}\label{normalidad-multivariante}}
+
+H0: Normalidad multivariante H1: No normalidad multivariante Confianza=
+95\%\\
+Alfa= 5\% = 0,05\\
+P value \textgreater{} alfa: no se rechaza la H0 (Normalidad) P value
+\textless{} alfa: se rechaza la H0 (No normalidad)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(MVN)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Registered S3 method overwritten by 'GGally':
+##   method from   
+##   +.gg   ggplot2
+\end{verbatim}
+
+\begin{verbatim}
+## sROC 0.1-2 loaded
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mvn}\NormalTok{(datost[}\DecValTok{2}\SpecialCharTok{:}\DecValTok{7}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $multivariateNormality
+##              Test         Statistic           p value Result
+## 1 Mardia Skewness  56.0885485548641 0.471539027493302    YES
+## 2 Mardia Kurtosis -1.09045752544829 0.275511653655659    YES
+## 3             MVN              <NA>              <NA>    YES
+## 
+## $univariateNormality
+##           Test    Variable Statistic   p value Normality
+## 1 Shapiro-Wilk    VALOR       0.8431    0.0004    NO    
+## 2 Shapiro-Wilk    TOTAL       0.9110    0.0158    NO    
+## 3 Shapiro-Wilk    HOGAR       0.9541    0.2175    YES   
+## 4 Shapiro-Wilk  GANANCIAS     0.9689    0.5089    YES   
+## 5 Shapiro-Wilk Hrs_Celular    0.9052    0.0113    NO    
+## 6 Shapiro-Wilk Hrs_juegos     0.8412    0.0004    NO    
+## 
+## $Descriptives
+##              n          Mean Std.Dev      Median       Min      Max       25th
+## VALOR       30  6.663507e-17       1 -0.23336687 -1.108493 1.516885 -1.1084926
+## TOTAL       30 -1.368914e-16       1 -0.32280398 -1.462112 1.955812 -0.8924581
+## HOGAR       30 -5.551115e-17       1  0.25528129 -1.659328 2.169891 -0.8615744
+## GANANCIAS   30  1.514269e-18       1  0.01159052 -1.842892 1.866073 -0.6838406
+## Hrs_Celular 30  3.516790e-17       1 -0.12142570 -1.487465 2.155306 -0.5767721
+## Hrs_juegos  30  1.475491e-16       1 -0.03920244 -1.215276 2.312944 -0.9212572
+##                    75th        Skew   Kurtosis
+## VALOR        0.64175888  0.29350266 -1.4031399
+## TOTAL        0.81650419  0.42897557 -1.0837250
+## HOGAR        0.89348453  0.08110201 -0.8220284
+## GANANCIAS    0.73599791 -0.03287289 -0.9539446
+## Hrs_Celular  0.33392068  0.42654491 -0.5444132
+## Hrs_juegos  -0.03920244  0.59114863 -0.2319669
+\end{verbatim}
+
+Como el P value \textgreater{} alfa, no se rechaza la H0, por lo tanto,
+existe normalidad multivariante.
+
+\end{document}
